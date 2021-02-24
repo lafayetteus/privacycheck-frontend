@@ -1,0 +1,50 @@
+$reveal-components: 12;
+$reveal-delay: 200ms;
+
+$opacity-transition: 500ms;
+$transform-transition: 1200ms;
+
+$easing-transform: cubic-bezier(0, 0.5, 0, 1);
+$easing-opacity: ease-out;
+
+.reveal__fade {
+	opacity: 0;
+	transition: opacity $opacity-transition $easing-opacity;
+}
+
+.reveal__slide {
+	opacity: 0;
+	transform-origin: center;
+	transform: translate3d(0, 50px, 0);
+	transition: opacity $opacity-transition $easing-opacity,
+		transform $transform-transition $easing-transform;
+
+	&.reveal__slide--tiny {
+		transform: translate3d(0, 10px, 0);
+	}
+
+	&.reveal__slide--small {
+		transform: translate3d(0, 20px, 0);
+	}
+
+	&.reveal__slide--takeover {
+		transform: translate3d(50px, 0, 0);
+	}
+}
+
+.reveal.active {
+	.reveal__slide {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+
+	.reveal__fade {
+		opacity: 1;
+	}
+}
+
+@for $i from 0 through $reveal-components {
+	.reveal__delay--#{$i} {
+		transition-delay: $i * $reveal-delay;
+	}
+}

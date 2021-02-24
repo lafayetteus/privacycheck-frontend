@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Work+Sans:ital@0;1&display=swap');
+@import './config.scss';
+
+// @font-face {
+//   font-family: 'BasicCommercialLTPro-Roman';
+//   src: url('../fonts/BasicCommercialLTProRoman.woff2') format('woff2'),
+//     url('../fonts/BasicCommercialLTProRoman.woff') format('woff');
+// }
+// @font-face {
+//   font-family: 'BasicCommercialLTCom-Italic';
+//   src: url('../fonts/BasicCommercialLTComItalic.woff2') format('woff2'),
+//     url('../fonts/BasicCommercialLTComItalic.woff') format('woff');
+// }
+
+//
+// === Loops ===
+//
+
+@each $sans-name, $sans-size in $sans-font-sizes {
+	.sans--#{$sans-name} {
+		font-family: $font-family-sans;
+		font-size: $sans-size;
+		line-height: map-get($sans-line-heights, $sans-name);
+	}
+}
+
+@each $breakpoint-name, $breakpoint-size in $breakpoints {
+	@media (min-width: #{$breakpoint-size}) {
+		@each $sans-name, $sans-size in $sans-font-sizes {
+			.sans--#{$sans-name}--#{$breakpoint-name} {
+				font-family: $font-family-sans;
+				font-size: $sans-size;
+				line-height: map-get($sans-line-heights, $sans-name);
+			}
+		}
+	}
+}
+
+@each $serif-name, $serif-size in $serif-font-sizes {
+	.serif--#{$serif-name} {
+		font-family: $font-family-serif;
+		font-size: $serif-size;
+		line-height: map-get($serif-line-heights, $serif-name);
+	}
+}
+
+@each $breakpoint-name, $breakpoint-size in $breakpoints {
+	@media (min-width: #{$breakpoint-size}) {
+		@each $serif-name, $serif-size in $serif-font-sizes {
+			.serif--#{$serif-name}--#{$breakpoint-name} {
+				font-family: $font-family-serif;
+				font-size: $serif-size;
+				line-height: map-get($serif-line-heights, $serif-name);
+			}
+		}
+	}
+}
+
+//
+// === Styles ===
+//
+
+html {
+	font-size: 14px;
+
+	@include breakpoint(lg) {
+		font-size: 18px;
+	}
+}
+
+body,
+a {
+	font-family: $font-family-sans;
+}
+
+body {
+	color: color(black);
+	line-height: 1.25;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+a.link--underline {
+	transition: border-color 0.2s ease;
+	border-bottom: 1px solid;
+
+	&:hover {
+		border-color: transparent;
+	}
+}
+
+a.link--underline-reverse {
+	transition: border-color 0.2s ease;
+	border-bottom: 1px solid transparent;
+
+	&:hover {
+		border-color: currentColor;
+	}
+}
+
+em {
+	font-style: italic;
+}
+
+.fit {
+	width: fit-content;
+}
+
+.rich-text {
+	h1,
+	h2,
+	h3,
+	p {
+		margin-bottom: 1em;
+	}
+	@include breakpoint(lg) {
+		h1,
+		h2,
+		h3,
+		p {
+			max-width: 75ch;
+		}
+	}
+}

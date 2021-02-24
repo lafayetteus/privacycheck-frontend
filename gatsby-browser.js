@@ -1,7 +1,18 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+// Polyfills
+require("unfetch")
 
-// You can delete this file if you're not using it
+const React = require("react")
+const Layout = require("./src/layout/Layout.jsx").default
+
+// Wrap every page with the main layout
+exports.wrapPageElement = ({ element, props }) => (
+  <Layout {...props}>{element}</Layout>
+)
+
+// Credits
+
+console.log(`
+Site Credit
+===========
+Design/Development: https://lafayetteamerican.com/
+`)

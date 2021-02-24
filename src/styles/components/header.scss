@@ -1,0 +1,28 @@
+.header {
+	color: white;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.header__logo {
+	height: auto;
+	max-width: 125px;
+
+	@include breakpoint(md) {
+		max-width: 175px;
+	}
+	@include breakpoint(lg) {
+		max-width: 225px;
+	}
+
+	path {
+		transition: fill 400ms ease;
+	}
+
+	&.scroll {
+		path {
+			fill: black;
+		}
+	}
+}

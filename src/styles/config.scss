@@ -1,0 +1,137 @@
+//
+// === Directions ===
+//
+
+$sides: (
+	t: top,
+	b: bottom,
+	l: left,
+	r: right,
+	j: justify,
+);
+
+$alignments: (
+	l: left,
+	r: right,
+	c: center,
+);
+
+//
+// === Colors ===
+//
+
+$all-colors: (
+	black: #000000,
+	grey: #dad9da,
+	white: #ffffff,
+);
+
+//
+// === Breakpoints ===
+//
+
+$breakpoints: (
+	sm: 600px,
+	md: 800px,
+	lg: 1000px,
+	xl: 1200px,
+	xxl: 1500px,
+);
+
+//
+// === Components ===
+//
+
+// Padding/Margin multiplier
+$spacer-max: 50;
+
+// Grid
+$grid-breakpoint: lg;
+
+// IMPORTANT: this is extended to have different grid on desktop breakpoints
+$grid-column-size: 12;
+
+$grid-gutter-mobile: 12px;
+$grid-gutter-desktop: 28px;
+
+$grid-gutter-extra: (
+	none: 0px,
+	mobile: $grid-gutter-mobile,
+);
+
+$grid-padding-mobile: 14px;
+$grid-padding-desktop: 16px;
+$grid-max-width: 2400px;
+
+//
+// === Typography ===
+//
+
+$typography-breakpoint: lg;
+
+$font-size-body-mobile: 14px;
+$font-size-body-desktop: 14px;
+
+$line-height-body-mobile: 18px;
+$line-height-body-desktop: 18px;
+
+$font-family-sans: 'Work Sans', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-serif: 'Lora', 'Times New Roman', serif;
+
+$font-family-monospace: monospace;
+
+$sans-font-sizes: (
+	sm: 14px,
+	md: 18px,
+	lg: 24px,
+	xl: 36px,
+	xxl: 48px,
+);
+
+$sans-line-heights: (
+	sm: 18px,
+	md: 25px,
+	lg: 32px,
+	xl: 42px,
+	xxl: 60px,
+);
+
+$serif-font-sizes: (
+	sm: 14px,
+	md: 18px,
+	lg: 32px,
+	xl: 48px,
+	xxl: 60px,
+);
+
+$serif-line-heights: (
+	sm: 18px,
+	md: 25px,
+	lg: 40px,
+	xl: 60px,
+	xxl: 75px,
+);
+
+//
+// === Constants ===
+//
+
+$button-height: 30px;
+$banner-height: 30px;
+$header-height: 50px;
+
+//
+// === Layering ===
+//
+
+$z-index-modal: 1300;
+$z-index-modal-underlay: 1200;
+$z-index-header: 1000;
+$z-index-cart: 900;
+$z-index-takeover: 800;
+$z-index-underlay: 700;
+
+::selection {
+	background-color: color(black);
+	color: color(white);
+}

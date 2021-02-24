@@ -1,0 +1,30 @@
+button {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+.button--primary {
+	border: 1px solid;
+	background-color: transparent;
+	font-family: $font-family-sans;
+	height: 40px;
+	line-height: 38px;
+	font-size: 14px;
+	border-radius: 500px;
+	padding: 0 10px;
+	transition: all 400ms ease;
+
+	@include breakpoint(lg) {
+		height: 52px;
+		line-height: 50px;
+		font-size: 18px;
+		padding: 0 20px;
+	}
+
+	&:hover {
+		background-color: color(black);
+		color: color(grey);
+	}
+}

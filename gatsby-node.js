@@ -1,7 +1,10 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+require("dotenv").config()
 
-// You can delete this file if you're not using it
+const { getAllPageData, createAllPages } = require("./src/build/createPages")
+
+exports.createPages = ({ actions }) =>
+  new Promise((resolve, reject) => {
+    getAllPageData().then(allResponses =>
+      createAllPages(allResponses, actions, resolve, reject)
+    )
+  })
