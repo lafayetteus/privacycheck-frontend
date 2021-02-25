@@ -80,13 +80,13 @@ const Footer = () => {
   return (
     <footer
       className={cx(
-        "footer bg--grey pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg",
+        "footer bg--grey pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg pr",
         {
           submitting: state.isSubmitting,
         }
       )}
+      id="contact"
     >
-      'submitting': state.isSubmitting
       <section className="grid-container contained">
         <div className="row">
           <div className="show--lg col c3" />
@@ -128,6 +128,9 @@ const Footer = () => {
             )}
           </form>
         </div>
+        <small className="pa sans--sm credit">
+          © {new Date().getFullYear()} Privacy Check
+        </small>
       </section>
     </footer>
   )

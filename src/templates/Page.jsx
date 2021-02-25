@@ -6,7 +6,7 @@ const Page = ({ pageContext }) => {
   const { title, seo, content } = pageContext
   return (
     <React.Fragment>
-      <section className="grid-container contained">
+      <section className="grid-container contained pt5 pb5 pt10--lg pb10--lg">
         <SEO metaTitle={title} {...seo} />
         <main className="row">
           <section className="col c12">

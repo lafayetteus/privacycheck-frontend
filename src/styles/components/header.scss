@@ -4,6 +4,12 @@
   left: 0;
   right: 0;
   z-index: $z-index-header;
+  transition: color 400ms ease;
+
+  &.color--black {
+    color: black;
+    background-color: color(grey);
+  }
 }
 
 .header__logo {
@@ -21,7 +27,7 @@
     transition: fill 400ms ease;
   }
 
-  &.scroll {
+  .color--black & {
     path {
       fill: black;
     }
