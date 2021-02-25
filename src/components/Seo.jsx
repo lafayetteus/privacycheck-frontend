@@ -1,5 +1,6 @@
 import React from "react"
 import Helmet from "react-helmet"
+import imageFallback from "../images/opengraph.png"
 
 const Seo = ({
   metaTitle = "Privacy Check",
@@ -7,7 +8,7 @@ const Seo = ({
   metaKeywords,
   openGraphTitle = "Privacy Check",
   openGraphDescription,
-  openGraphImage,
+  openGraphImage = imageFallback,
   twitterUser = "@privacycheck",
   twitterTitle = "Privacy Check",
   twitterDescription,
