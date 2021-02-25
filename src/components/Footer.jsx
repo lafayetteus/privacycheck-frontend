@@ -1,14 +1,31 @@
 import React, { useState } from "react"
 import fetch from "node-fetch"
+import cx from "classnames"
+import { email as emailRegex } from "magic-tricks/lib/regex"
 
 const Footer = () => {
   const [state, setState] = useState({
     email: null,
     isError: null,
     isSuccess: null,
+    isSubmitting: false,
+    showInvalidEmailError: false,
   })
+
+  const onChangeEmail = event => {
+    const { showInvalidEmailError } = state
+    setState({
+      ...state,
+      email: event.target.value,
+      showInvalidEmailError: showInvalidEmailError
+        ? !emailRegex.test(event.target.value)
+        : showInvalidEmailError,
+    })
+  }
+
   const handleSubmit = event => {
     event.preventDefault()
+
     if (!state.email) {
       setState({
         ...state,
@@ -17,25 +34,59 @@ const Footer = () => {
       return
     }
 
+    if (!emailRegex.test(state.email)) {
+      setState({
+        ...state,
+        showInvalidEmailError: true,
+        isSubmitting: false,
+      })
+
+      return
+    }
+
+    setState({
+      ...state,
+      isSubmitting: true,
+      showInvalidEmailError: false,
+    })
+
     fetch(".netlify/functions/mailchimp", {
       method: "POST",
       body: JSON.stringify({
-        firstName: null,
-        lastName: null,
+        firstName: "",
+        lastName: "",
         email: state.email,
-        phone: null,
-        message: null,
+        phone: "",
+        message: "",
       }),
     })
+      .then(res => {
+        return res.json()
+      })
       .then(response => {
-        // console.log(response.body)
+        if (response.success) {
+          setState({
+            ...state,
+            isError: null,
+            isSuccess: "Thank you for signing up!",
+          })
+        }
       })
       .catch(error => {
         console.error(error)
       })
   }
+
   return (
-    <footer className="footer bg--grey pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg">
+    <footer
+      className={cx(
+        "footer bg--grey pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg",
+        {
+          submitting: state.isSubmitting,
+        }
+      )}
+    >
+      'submitting': state.isSubmitting
       <section className="grid-container contained">
         <div className="row">
           <div className="show--lg col c3" />
@@ -56,13 +107,7 @@ const Footer = () => {
                   id="email"
                   placeholder="Email Account*"
                   className="contact-form__input db x mt2"
-                  onChange={e => {
-                    const { target } = e
-                    setState({
-                      ...state,
-                      email: target.value,
-                    })
-                  }}
+                  onChange={onChangeEmail}
                   required
                 />
               </label>
@@ -72,6 +117,14 @@ const Footer = () => {
             </div>
             {state.isError && (
               <p className="mt1 sans--sm sans--md--md error">{state.isError}</p>
+            )}
+            {state.showInvalidEmailError && (
+              <p className="mt1 sans--sm sans--md--md error">
+                Please fix your email address.
+              </p>
+            )}
+            {state.isSuccess && (
+              <p className="mt1 sans--sm sans--md--md">{state.isSuccess}</p>
             )}
           </form>
         </div>

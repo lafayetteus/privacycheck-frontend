@@ -3,17 +3,17 @@
 //
 
 $sides: (
-	t: top,
-	b: bottom,
-	l: left,
-	r: right,
-	j: justify,
+  t: top,
+  b: bottom,
+  l: left,
+  r: right,
+  j: justify,
 );
 
 $alignments: (
-	l: left,
-	r: right,
-	c: center,
+  l: left,
+  r: right,
+  c: center,
 );
 
 //
@@ -21,9 +21,9 @@ $alignments: (
 //
 
 $all-colors: (
-	black: #000000,
-	grey: #dad9da,
-	white: #ffffff,
+  black: #000000,
+  grey: #dad9da,
+  white: #ffffff,
 );
 
 //
@@ -31,11 +31,11 @@ $all-colors: (
 //
 
 $breakpoints: (
-	sm: 600px,
-	md: 800px,
-	lg: 1000px,
-	xl: 1200px,
-	xxl: 1500px,
+  sm: 600px,
+  md: 800px,
+  lg: 1000px,
+  xl: 1200px,
+  xxl: 1500px,
 );
 
 //
@@ -55,8 +55,8 @@ $grid-gutter-mobile: 12px;
 $grid-gutter-desktop: 28px;
 
 $grid-gutter-extra: (
-	none: 0px,
-	mobile: $grid-gutter-mobile,
+  none: 0px,
+  mobile: $grid-gutter-mobile,
 );
 
 $grid-padding-mobile: 14px;
@@ -75,41 +75,41 @@ $font-size-body-desktop: 14px;
 $line-height-body-mobile: 18px;
 $line-height-body-desktop: 18px;
 
-$font-family-sans: 'Work Sans', 'Helvetica Neue', Helvetica, sans-serif;
-$font-family-serif: 'Lora', 'Times New Roman', serif;
+$font-family-sans: "Work Sans", "Helvetica Neue", Helvetica, sans-serif;
+$font-family-serif: "Lora", "Times New Roman", serif;
 
 $font-family-monospace: monospace;
 
 $sans-font-sizes: (
-	sm: 14px,
-	md: 18px,
-	lg: 24px,
-	xl: 36px,
-	xxl: 48px,
+  sm: 14px,
+  md: 18px,
+  lg: 24px,
+  xl: 36px,
+  xxl: 48px,
 );
 
 $sans-line-heights: (
-	sm: 18px,
-	md: 25px,
-	lg: 32px,
-	xl: 42px,
-	xxl: 60px,
+  sm: 18px,
+  md: 25px,
+  lg: 32px,
+  xl: 42px,
+  xxl: 60px,
 );
 
 $serif-font-sizes: (
-	sm: 14px,
-	md: 18px,
-	lg: 32px,
-	xl: 48px,
-	xxl: 60px,
+  sm: 14px,
+  md: 18px,
+  lg: 32px,
+  xl: 48px,
+  xxl: 60px,
 );
 
 $serif-line-heights: (
-	sm: 18px,
-	md: 25px,
-	lg: 40px,
-	xl: 60px,
-	xxl: 75px,
+  sm: 18px,
+  md: 25px,
+  lg: 40px,
+  xl: 60px,
+  xxl: 75px,
 );
 
 //
@@ -132,6 +132,10 @@ $z-index-takeover: 800;
 $z-index-underlay: 700;
 
 ::selection {
-	background-color: color(black);
-	color: color(white);
+  background-color: color(black);
+  color: color(white);
+}
+
+.submitting {
+  cursor: wait;
 }

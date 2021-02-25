@@ -18,26 +18,41 @@ exports.handler = async (event, context) => {
       }),
     }
   }
-  const { firstName, lastName, email, phone, message } = JSON.parse(body)
 
-  const response = await mailchimp.lists.addListMember(mailchimpListID, {
-    email_address: email,
-    status: "subscribed",
-    merge_fields: {
-      FNAME: firstName,
-      LNAME: lastName,
-      PHONE: phone,
-      MMERGE5: message,
-    },
-  })
+  const subscriber = JSON.parse(body)
+
+  const {
+    firstName = "",
+    lastName = "",
+    email = "",
+    phone = "",
+    message = "",
+  } = subscriber
+
+  const response = await mailchimp.lists.setListMember(
+    mailchimpListID,
+    md5(email.toLowerCase()),
+    {
+      email_address: email,
+      status_if_new: "subscribed",
+      merge_fields: {
+        FNAME: firstName,
+        LNAME: lastName,
+        PHONE: phone,
+        MMERGE5: message,
+      },
+    }
+  )
 
   console.log(
     `Successfully added contact as an audience member. The contact's id is ${response.id}.`
   )
+
   return {
     statusCode: 200,
     body: JSON.stringify({
-      success: `Successfully added contact as an audience member. The contact's id is ${response.id}.`,
+      success: `Successfully added contact as an audience member`,
+      response: response,
     }),
   }
 }
