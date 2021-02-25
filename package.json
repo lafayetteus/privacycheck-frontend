@@ -5,6 +5,7 @@
   "author": "Lafayette American <https://lafayetteamerican.com>",
   "dependencies": {
     "@asbjorn/eslint-plugin-groq": "^1.0.0",
+    "@mailchimp/mailchimp_marketing": "^3.0.33",
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^2.2.6",
     "classnames": "^2.2.6",
@@ -24,7 +25,9 @@
     "keen-slider": "^5.4.0",
     "lodash": "^4.17.20",
     "magic-tricks": "^0.3.1",
+    "md5": "^2.3.0",
     "netlify-cli": "^3.8.6",
+    "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",

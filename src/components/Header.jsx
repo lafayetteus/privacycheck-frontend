@@ -11,7 +11,7 @@ const Header = ({ pathname }) => {
         psy: pathname !== "/",
       })}
     >
-      <Link href="/">
+      <Link to="/">
         <Logo className="header__logo" />
       </Link>
       <p>Lafayette American</p>

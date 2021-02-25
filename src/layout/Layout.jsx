@@ -2,6 +2,7 @@ import React from "react"
 import { SwitchTransition, Transition } from "react-transition-group"
 import { useLocation } from "@reach/router"
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 import "../styles/main.scss"
 
 export const TRANSITION_DURATION = 400
@@ -48,6 +49,7 @@ const Layout = ({ children }) => {
               }}
             >
               {children}
+              <Footer />
             </main>
           )}
         </Transition>
