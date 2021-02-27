@@ -1,47 +1,48 @@
 .contact-modal {
-	z-index: $z-index-modal;
+  z-index: $z-index-modal;
+  color: white;
 }
 
 .contact-modal__close {
-	top: 20px;
-	right: 20px;
-	cursor: pointer;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
 }
 
 input,
 label,
 textarea {
-	border: none;
-	background-color: transparent;
+  border: none;
+  background-color: transparent;
 }
 
 .contact-form__input {
-	padding: 10px 0;
-	border-bottom: 1px solid;
-	font-family: $font-family-sans;
-	font-size: 14px;
-	color: color(black);
+  padding: 10px 0;
+  border-bottom: 1px solid;
+  font-family: $font-family-sans;
+  font-size: 14px;
+  color: color(white);
 
-	@include breakpoint(lg) {
-		font-size: 18px;
-	}
+  @include breakpoint(lg) {
+    font-size: 18px;
+  }
 
-	&:focus {
-		outline: 1px dotted currentColor;
-	}
+  &:focus {
+    outline: 1px dotted currentColor;
+  }
 
-	&::placeholder {
-		font-family: $font-family-sans;
-		font-size: 14px;
-		opacity: 1;
-		color: color(black);
+  &::placeholder {
+    font-family: $font-family-sans;
+    font-size: 14px;
+    opacity: 1;
+    color: color(white);
 
-		@include breakpoint(lg) {
-			font-size: 18px;
-		}
-	}
+    @include breakpoint(lg) {
+      font-size: 18px;
+    }
+  }
 }
 
 .error {
-	color: red;
+  color: red;
 }

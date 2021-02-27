@@ -45,6 +45,8 @@ const components = groq`components[] {
 
 	_type == 'introSection' => {
       _key,
+	  showNav,
+	  navTitle,
       title,
       subtitle,
       description ${richText},
@@ -53,6 +55,8 @@ const components = groq`components[] {
 
 	_type == 'ourSolution' => {
       _key,
+	  showNav,
+	  navTitle,
       title,
       image ${asset},
       description ${richText},
@@ -62,6 +66,8 @@ const components = groq`components[] {
 
 	_type == 'howItWorks' => {
       _key,
+	  showNav,
+	  navTitle,
       title,
       description ${richText},
       image ${asset},
@@ -71,6 +77,8 @@ const components = groq`components[] {
 
 	_type == 'news' => {
 		_key,
+		showNav,
+		navTitle,
     	title,
     	list[] {
 			_key,

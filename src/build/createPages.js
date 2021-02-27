@@ -22,6 +22,9 @@ module.exports.getAllPageData = () => {
 module.exports.createAllPages = (promiseResults, actions, resolve, reject) => {
   const [homepage, pages = []] = promiseResults
 
+  const header = {
+    navigation: homepage.components.filter(item => item.showNav),
+  }
   //
   // === Create pages ===
   //
@@ -33,6 +36,7 @@ module.exports.createAllPages = (promiseResults, actions, resolve, reject) => {
       component: require.resolve("../templates/Home.jsx"),
       context: {
         ...homepage,
+        ...header,
       },
     })
 
@@ -41,6 +45,7 @@ module.exports.createAllPages = (promiseResults, actions, resolve, reject) => {
         path: `/${page.slug}`,
         component: require.resolve("../templates/Page.jsx"),
         context: {
+          ...header,
           ...page,
         },
       })
@@ -52,6 +57,7 @@ module.exports.createAllPages = (promiseResults, actions, resolve, reject) => {
       component: require.resolve("../templates/404.jsx"),
       context: {
         ...homepage,
+        ...header,
       },
     })
 

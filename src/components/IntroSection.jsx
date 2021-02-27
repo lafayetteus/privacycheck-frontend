@@ -1,10 +1,25 @@
 import React from "react"
 import BlockContent from "@sanity/block-content-to-react"
+import cx from "classnames"
 
-const IntroSection = ({ title, subtitle, description, quote, image }) => (
+const IntroSection = ({
+  _type,
+  index,
+  showNav,
+  title,
+  subtitle,
+  description,
+  quote,
+  image,
+}) => (
   <section
-    id="about"
-    className="intro bg--grey pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1"
+    id={`${_type}_${index}`}
+    className={cx(
+      "intro page-section bb--black pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1",
+      {
+        "color--black": !image,
+      }
+    )}
   >
     <div className="grid-container contained">
       <div className="df fdc fdr--sm intro__header">
@@ -22,27 +37,29 @@ const IntroSection = ({ title, subtitle, description, quote, image }) => (
       <p className="serif--md serif--lg--md col c10 c9--sm c8--md c5--lg mxa">
         {quote}
       </p>
-      <div className="tc">
-        <picture>
-          <source
-            srcSet={`${image.url}?w=1600&auto=format`}
-            media="(min-width: 1000px)"
-          />
-          <source
-            srcSet={`${image.url}?w=1200&auto=format`}
-            media="(min-width: 800px)"
-          />
-          <source
-            srcSet={`${image.url}?w=1000&auto=format`}
-            media="(min-width: 600px)"
-          />
-          <img
-            alt={image.alt}
-            src={`${image.url}?w=300&auto=format`}
-            className="pt5 pt7--sm pt10--lg mxa col c10 c9--sm c8--md"
-          />
-        </picture>
-      </div>
+      {image && (
+        <div className="tc">
+          <picture>
+            <source
+              srcSet={`${image.url}?w=1600&auto=format`}
+              media="(min-width: 1000px)"
+            />
+            <source
+              srcSet={`${image.url}?w=1200&auto=format`}
+              media="(min-width: 800px)"
+            />
+            <source
+              srcSet={`${image.url}?w=1000&auto=format`}
+              media="(min-width: 600px)"
+            />
+            <img
+              alt={image.alt}
+              src={`${image.url}?w=300&auto=format`}
+              className="pt5 pt7--sm pt10--lg mxa col c10 c9--sm c8--md"
+            />
+          </picture>
+        </div>
+      )}
     </div>
   </section>
 )

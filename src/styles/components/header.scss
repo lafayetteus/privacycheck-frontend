@@ -4,17 +4,20 @@
   left: 0;
   right: 0;
   z-index: $z-index-header;
-  transition: color 400ms ease;
+  background-color: transparent;
+  transition: color 400ms ease, border-bottom 400ms ease,
+    background-color 400ms ease;
+  border-bottom: 1px solid transparent;
 
-  &.color--black {
+  &.scrolled {
     color: black;
-    background-color: color(grey);
+    background-color: color(white);
   }
 }
 
 .header__logo {
   height: auto;
-  max-width: 125px;
+  max-width: 150px;
 
   @include breakpoint(md) {
     max-width: 175px;
@@ -27,9 +30,25 @@
     transition: fill 400ms ease;
   }
 
-  .color--black & {
+  .scrolled & {
     path {
       fill: black;
     }
+  }
+}
+
+.mobile-navigation {
+  transition: transform 400ms ease;
+  transform: translateX(100%);
+  z-index: $z-index-modal;
+
+  &.open {
+    transform: translateX(0);
+  }
+}
+
+.header__mobile-button {
+  svg {
+    max-width: 24px;
   }
 }

@@ -11,29 +11,29 @@ const ComponentList = ({ components = [] }) => (
     {components.map((component, index) => {
       switch (component._type) {
         case "hero":
-          return <Hero key={component._key} {...component} />
+          return <Hero index={index} key={component._key} {...component} />
         case "introSection":
           return (
             <Reveal key={component._key}>
-              <IntroSection {...component} />
+              <IntroSection index={index} {...component} />
             </Reveal>
           )
         case "ourSolution":
           return (
             <Reveal key={component._key}>
-              <OurSolution {...component} />
+              <OurSolution index={index} {...component} />
             </Reveal>
           )
         case "howItWorks":
           return (
             <Reveal key={component._key}>
-              <HowItWorks {...component} />
+              <HowItWorks index={index} {...component} />
             </Reveal>
           )
         case "news":
           return (
             <Reveal key={component._key}>
-              <News {...component} />
+              <News index={index} {...component} />
             </Reveal>
           )
         default:

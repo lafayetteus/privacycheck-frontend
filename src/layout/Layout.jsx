@@ -25,12 +25,13 @@ const TRANSITION_STYLES = {
   },
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ pageContext, children }) => {
   const location = useLocation()
+  const { navigation } = pageContext
 
   return (
     <React.Fragment>
-      <Header {...location} />
+      <Header pathname={location.pathname} navigation={navigation} />
 
       <SwitchTransition>
         <Transition

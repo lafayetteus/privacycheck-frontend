@@ -85,7 +85,7 @@ const ContactModal = ({ setIsModalOpen, style }) => {
   return (
     <div
       style={{ ...style }}
-      className={cx("pf fill top left right bottom contact-modal bg--grey", {
+      className={cx("pf fill top left right bottom contact-modal bg--black", {
         submitting: state.isSubmitting,
       })}
     >
@@ -93,7 +93,7 @@ const ContactModal = ({ setIsModalOpen, style }) => {
         onClick={() => setIsModalOpen(false)}
         className="pa contact-modal__close"
       >
-        <Close />
+        <Close className="color--white" />
       </button>
       <form
         name="contact"
@@ -180,7 +180,7 @@ const ContactModal = ({ setIsModalOpen, style }) => {
           />
         </label>
         <button
-          className="mxa button--primary mt2 mt5--md "
+          className="mxa button--primary button--primary--white mt2 mt5--md "
           onClick={handleSubmit}
         >
           Submit

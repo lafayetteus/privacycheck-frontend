@@ -24,55 +24,55 @@ const TRANSITION_STYLES = {
   },
 }
 
-const HowItWorks = ({ title, description, image, cta, buttonCta }) => {
+const HowItWorks = ({
+  _type,
+  index,
+  showNav,
+  title,
+  description,
+  image,
+  cta,
+  buttonCta,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   return (
     <React.Fragment>
       <section
-        id="how-it-works"
-        className="how-it-works bg--grey   pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1"
+        id={`${_type}_${index}`}
+        className="how-it-works page-section bb--black pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1"
       >
         <div className="grid-container contained">
           <div className="df fdc fdr--sm intro__header">
             <h2 className="serif--md serif--lg--md serif--xl--lg  col c6--sm">
               {title}
             </h2>
-            <div className="col c6--sm pt2 pt0--sm serif--sm serif--md--md serif--lg--lg">
+            <div className="col c6--sm pt2 pt0--sm serif--sm serif--md--md serif--lg--lg rich-text">
               <BlockContent blocks={description} />
             </div>
           </div>
-          <div className="tc">
-            <picture>
-              <source
-                srcSet={`${image.url}?w=2400&auto=format`}
-                media="(min-width: 1600px)"
-              />
-              <source
-                srcSet={`${image.url}?w=1600&auto=format`}
-                media="(min-width: 1000px)"
-              />
-              <source
-                srcSet={`${image.url}?w=1000&auto=format`}
-                media="(min-width: 600px)"
-              />
-              <img
-                alt={image.alt}
-                src={`${image.url}?w=400&auto=format`}
-                className="pt5 pt10--md pt12--lg reveal__delay--2 col c8--lg tc x"
-              />
-            </picture>
-          </div>
-          <aside className="tc">
-            <p className="pt5 pt7--md pt10--lg serif--md serif--lg--md tc">
-              {cta}
-            </p>
-            <button
-              className="mxa button--primary mt2 mt5--md "
-              onClick={() => setIsModalOpen(true)}
-            >
-              {buttonCta}
-            </button>
-          </aside>
+          {image && (
+            <div className="tc">
+              <picture>
+                <source
+                  srcSet={`${image.url}?w=2400&auto=format`}
+                  media="(min-width: 1600px)"
+                />
+                <source
+                  srcSet={`${image.url}?w=1600&auto=format`}
+                  media="(min-width: 1000px)"
+                />
+                <source
+                  srcSet={`${image.url}?w=1000&auto=format`}
+                  media="(min-width: 600px)"
+                />
+                <img
+                  alt={image.alt}
+                  src={`${image.url}?w=400&auto=format`}
+                  className="pt5 pt10--md pt12--lg reveal__delay--2 col c8--lg tc x"
+                />
+              </picture>
+            </div>
+          )}
         </div>
       </section>
       <Transition
