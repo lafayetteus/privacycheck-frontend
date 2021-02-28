@@ -70,9 +70,11 @@ const components = groq`components[] {
 	  navTitle,
       title,
       description ${richText},
-      image ${asset},
-      cta,
-      buttonCta
+	  list[] {
+		  _key,
+		  title,
+		  description ${richText}
+	  }
     },
 
 	_type == 'news' => {
@@ -88,6 +90,22 @@ const components = groq`components[] {
 			description
 		}
     },
+
+	_type == 'bodySectionRichText' => {
+		_key,
+		showNav,
+		navTitle,
+		description ${richText},
+	},
+
+	_type == 'bodySectionImage' => {
+		_key,
+		showNav,
+		navTitle,
+		description ${richText},
+		image ${asset},
+		details ${richText}
+	},
 
 }`
 
