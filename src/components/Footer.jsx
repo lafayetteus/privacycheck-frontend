@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import fetch from "node-fetch"
 import cx from "classnames"
 import { email as emailRegex } from "magic-tricks/lib/regex"
+import { Link } from "gatsby"
+import Logo from "./Logo"
 
 const Footer = () => {
   const [state, setState] = useState({
@@ -80,7 +82,7 @@ const Footer = () => {
   return (
     <footer
       className={cx(
-        "footer bg--black color--white pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg pr",
+        "footer bg--black color--white pt5 pb10 pt7--sm pb7--sm pt10--lg pb10--lg pr",
         {
           submitting: state.isSubmitting,
         }
@@ -89,16 +91,17 @@ const Footer = () => {
     >
       <section className="grid-container contained">
         <div className="row">
-          <div className="col c12 c4--lg">
-            <p className="serif--md">
+          <div className="col c12 c5--lg c4--xl">
+            <Link to="/">
+              <Logo className="header__logo" />
+            </Link>
+          </div>
+          <div className="show--lg col c2 c4--xl" />
+          <form className="col c12 c5--lg c4--xl pt2 pt0--lg">
+            <p className="sans--md--md">
               Stay Informed. Our weekly newsletter provides a tightly edited
               rundown of privacy news and tips.
             </p>
-          </div>
-          <div className="show--lg col c3" />
-          <div className="show--lg col c1" />
-          <form className="col c12 c4--lg pt2 pt0--lg">
-            <p className="sans--md--md">Sign up to our privacy roundup</p>
             <div className="footer__form-fields pr">
               <label>
                 <input
