@@ -20,11 +20,11 @@ const BodySectionImage = ({
           <h2 className="serif--lg serif--xl--lg">{title}</h2>
         </div>
         <div className="col c6--lg pt4 pt0--lg">
-          <div className="serif--md serif--lg--md col c6--lg">
+          <div className="serif--md serif--lg--md ">
             <BlockContent blocks={description} />
           </div>
         </div>
-        <div className="col c8--lg pt5 reveal__delay--2">
+        <div className="col c9--lg pt5 pt10--lg reveal__delay--2">
           <picture>
             <source
               srcSet={`${image.url}?w=2400&auto=format`}
@@ -45,8 +45,8 @@ const BodySectionImage = ({
             />
           </picture>
         </div>
-        <div className="col c4--lg pt1 pt0--lg reveal__delay--2">
-          <div className="sans--sm sans--md--md col c6--lg rich-text">
+        <div className="col c3--lg pt1 pt10--lg reveal__delay--2">
+          <div className="sans--sm sans--md--md ml2--lg  rich-text">
             <BlockContent blocks={details} />
           </div>
         </div>
