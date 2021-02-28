@@ -35,7 +35,8 @@
     "react-helmet": "^6.1.0",
     "react-transition-group": "^4.4.1",
     "scroll-to-element": "^2.0.3",
-    "unfetch": "^4.2.0"
+    "unfetch": "^4.2.0",
+    "xss": "^1.0.8"
   },
   "devDependencies": {
     "prettier": "2.2.1"

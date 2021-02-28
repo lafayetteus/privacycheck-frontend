@@ -4,6 +4,7 @@ import cx from "classnames"
 import { email as emailRegex } from "magic-tricks/lib/regex"
 import { Link } from "gatsby"
 import Logo from "./Logo"
+import xss from "xss"
 
 const Footer = () => {
   const [state, setState] = useState({
@@ -18,7 +19,7 @@ const Footer = () => {
     const { showInvalidEmailError } = state
     setState({
       ...state,
-      email: event.target.value,
+      email: xss(event.target.value),
       showInvalidEmailError: showInvalidEmailError
         ? !emailRegex.test(event.target.value)
         : showInvalidEmailError,

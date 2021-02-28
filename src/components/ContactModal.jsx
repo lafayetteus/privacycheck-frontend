@@ -3,6 +3,7 @@ import Close from "./Close"
 import fetch from "node-fetch"
 import cx from "classnames"
 import { email as emailRegex } from "magic-tricks/lib/regex"
+import xss from "xss"
 
 const ContactModal = ({ setIsModalOpen, style }) => {
   const [state, setState] = useState({
@@ -21,7 +22,7 @@ const ContactModal = ({ setIsModalOpen, style }) => {
     const { showInvalidEmailError } = state
     setState({
       ...state,
-      email: event.target.value,
+      email: xss(event.target.value),
       showInvalidEmailError: showInvalidEmailError
         ? !emailRegex.test(event.target.value)
         : showInvalidEmailError,
@@ -114,7 +115,7 @@ const ContactModal = ({ setIsModalOpen, style }) => {
               const { target } = event
               setState({
                 ...state,
-                firstName: target.value,
+                firstName: xss(target.value),
               })
             }}
           />
@@ -131,7 +132,7 @@ const ContactModal = ({ setIsModalOpen, style }) => {
               const { target } = event
               setState({
                 ...state,
-                lastName: target.value,
+                lastName: xss(target.value),
               })
             }}
           />
@@ -158,7 +159,7 @@ const ContactModal = ({ setIsModalOpen, style }) => {
               const { target } = event
               setState({
                 ...state,
-                phone: target.value,
+                phone: xss(target.value),
               })
             }}
           />
@@ -174,7 +175,7 @@ const ContactModal = ({ setIsModalOpen, style }) => {
               const { target } = event
               setState({
                 ...state,
-                message: target.value,
+                message: xss(target.value),
               })
             }}
           />

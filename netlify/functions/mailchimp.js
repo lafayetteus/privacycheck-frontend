@@ -1,5 +1,6 @@
 const mailchimp = require("@mailchimp/mailchimp_marketing")
 const md5 = require("md5")
+const xss = require("xss")
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_TOKEN,
@@ -33,13 +34,13 @@ exports.handler = async (event, context) => {
     mailchimpListID,
     md5(email.toLowerCase()),
     {
-      email_address: email,
+      email_address: xss(email),
       status_if_new: "subscribed",
       merge_fields: {
-        FNAME: firstName,
-        LNAME: lastName,
-        PHONE: phone,
-        MMERGE5: message,
+        FNAME: xss(firstName),
+        LNAME: xss(lastName),
+        PHONE: xss(phone),
+        MMERGE5: xss(message),
       },
     }
   )
