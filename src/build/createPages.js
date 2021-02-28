@@ -22,8 +22,17 @@ module.exports.getAllPageData = () => {
 module.exports.createAllPages = (promiseResults, actions, resolve, reject) => {
   const [homepage, pages = []] = promiseResults
 
+  const componentsWithNav =
+    homepage.components.filter(item => item.showNav) || []
+
   const header = {
-    navigation: homepage.components.filter(item => item.showNav),
+    navigation: componentsWithNav.map(item => {
+      return {
+        _key: item._key,
+        _type: item._type,
+        navTitle: item.navTitle,
+      }
+    }),
   }
   //
   // === Create pages ===

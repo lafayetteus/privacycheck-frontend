@@ -1,31 +1,31 @@
 .hero {
-	height: 100vh;
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .hero__content {
-	color: white;
-	padding: 45vh 20px 50px 20px;
+  color: white;
+  padding: 55vh 20px 50px 20px;
 
-	@include breakpoint(md) {
-		width: 75vw;
-		margin-left: auto;
-		padding-right: 50px;
-	}
+  @include breakpoint(md) {
+    width: 75vw;
+    margin-left: auto;
+    padding-right: 50px;
+  }
 
-	@include breakpoint(xl) {
-		padding: 0;
-		width: 50vw;
-		min-height: 50vh;
-		padding-bottom: 50px;
-		margin-left: auto;
-		padding-right: 50px;
-		align-self: flex-end;
-	}
+  @include breakpoint(xl) {
+    padding: 0;
+    width: 50vw;
+    min-height: 45vh;
+    padding-bottom: 50px;
+    margin-left: auto;
+    padding-right: 50px;
+    align-self: flex-end;
+  }
 
-	@include breakpoint(xl) {
-		padding-right: 100px;
-	}
+  @include breakpoint(xl) {
+    padding-right: 100px;
+  }
 }

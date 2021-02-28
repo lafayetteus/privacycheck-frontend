@@ -65,6 +65,7 @@ const Header = ({ pathname, navigation = [] }) => {
             {navigation.map((item, index) => {
               return (
                 <a
+                  key={item._key}
                   onClick={scroll}
                   className="sans--sm mr1"
                   href={`#${item._type}_${index + 1}`}
@@ -102,6 +103,7 @@ const Header = ({ pathname, navigation = [] }) => {
           {navigation.map((item, index) => {
             return (
               <a
+                key={item._key}
                 onClick={scroll}
                 className="sans--xl db color--white pt1"
                 href={`#${item._type}_${index + 1}`}

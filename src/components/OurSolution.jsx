@@ -14,7 +14,7 @@ const OurSolution = ({
     id={`${_type}_${index}`}
     className="our-solution page-section bb--black grid-container contained  pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1"
   >
-    <h2 className="serif--md serif--lg--md serif--xl--lg">{title}</h2>
+    <h2 className="serif--lg serif--xl--lg serif--xl--lg">{title}</h2>
     <picture>
       <source
         srcSet={`${image.url}?w=2400&auto=format`}

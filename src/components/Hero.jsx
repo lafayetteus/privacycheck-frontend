@@ -36,7 +36,7 @@ const Hero = ({ title, subtitle, image }) => {
             <BlockContent blocks={subtitle} />
           </div>
           <button
-            className="mxa button--primary mt2 mt5--md color--white"
+            className="mxa button--primary button--primary--white mt2 mt5--md color--white"
             onClick={() => setIsModalOpen(true)}
           >
             Contact Us

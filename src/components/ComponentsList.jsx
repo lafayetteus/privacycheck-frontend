@@ -5,6 +5,8 @@ import IntroSection from "./IntroSection"
 import OurSolution from "./OurSolution"
 import HowItWorks from "./HowItWorks"
 import News from "./News"
+import BodySectionImage from "./BodySectionImage"
+import BodySectionRichText from "./BodySectionRichText"
 
 const ComponentList = ({ components = [] }) => (
   <React.Fragment>
@@ -34,6 +36,18 @@ const ComponentList = ({ components = [] }) => (
           return (
             <Reveal key={component._key}>
               <News index={index} {...component} />
+            </Reveal>
+          )
+        case "bodySectionImage":
+          return (
+            <Reveal key={component._key}>
+              <BodySectionImage index={index} {...component} />
+            </Reveal>
+          )
+        case "bodySectionRichText":
+          return (
+            <Reveal key={component._key}>
+              <BodySectionRichText index={index} {...component} />
             </Reveal>
           )
         default:

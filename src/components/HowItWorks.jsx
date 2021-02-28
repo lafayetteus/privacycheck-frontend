@@ -43,9 +43,7 @@ const HowItWorks = ({
       >
         <div className="grid-container contained">
           <div className="df fdc fdr--sm intro__header">
-            <h2 className="serif--md serif--lg--md serif--xl--lg  col c6--sm">
-              {title}
-            </h2>
+            <h2 className="serif--lg serif--xl--lg col c6--sm">{title}</h2>
             <div className="col c6--sm pt2 pt0--sm serif--sm serif--md--md serif--lg--lg rich-text">
               <BlockContent blocks={description} />
             </div>

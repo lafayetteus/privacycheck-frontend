@@ -31,7 +31,7 @@ const News = ({ _type, index, showNav, title, list = [] }) => {
       className="news page-section bb--black pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1"
     >
       <div className="grid-container contained">
-        <h2 className="serif--md serif--lg--md serif--xl--lg  col c6--sm">
+        <h2 className="serif--lg serif--xl--lg serif--xl--lg  col c6--sm">
           {title}
         </h2>
         {list.length && (
