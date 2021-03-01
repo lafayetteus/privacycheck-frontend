@@ -1,16 +1,11 @@
 .header {
-  color: white;
-  background-color: color(grey);
+  background-color: color(white);
+  color: color(black);
+
   top: 0;
   left: 0;
   right: 0;
   z-index: $z-index-header;
-  transition: color 400ms ease;
-
-  &.scrolled {
-    background-color: color(white);
-    color: color(black);
-  }
 }
 
 .header__logo {
@@ -22,16 +17,6 @@
   }
   @include breakpoint(lg) {
     max-width: 225px;
-  }
-
-  path {
-    transition: fill 400ms ease;
-  }
-
-  .scrolled & {
-    path {
-      fill: black;
-    }
   }
 }
 

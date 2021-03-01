@@ -37,29 +37,24 @@ const Header = ({ pathname, navigation = [] }) => {
     }
   }
 
-  const onScroll = () => {
-    if (global.scrollY >= global.innerHeight - 75) {
-      setScrolled(true)
-    } else {
-      setScrolled(false)
-    }
-  }
+  // const onScroll = () => {
+  //   if (global.scrollY >= global.innerHeight - 75) {
+  //     setScrolled(true)
+  //   } else {
+  //     setScrolled(false)
+  //   }
+  // }
 
-  useEffect(() => {
-    viewport.listen(onScroll)
-    return () => {
-      viewport.unlisten(onScroll)
-    }
-  }, [])
+  // useEffect(() => {
+  //   viewport.listen(onScroll)
+  //   return () => {
+  //     viewport.unlisten(onScroll)
+  //   }
+  // }, [])
 
   return (
     <React.Fragment>
-      <header
-        className={cx("header psy bb--black", {
-          scrolled: pathname !== "/",
-          scrolled: scrolled,
-        })}
-      >
+      <header className="header psy bb--black">
         <section className="grid-container contained df jcb pb2 pt2 aic">
           <Link to="/">
             <Logo className="header__logo" />
