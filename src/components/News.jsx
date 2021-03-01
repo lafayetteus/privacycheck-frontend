@@ -1,30 +1,23 @@
-import React from "react"
-import { useKeenSlider } from "keen-slider/react"
-import "keen-slider/keen-slider.min.css"
+import React, { useEffect, useState } from "react"
+import cx from "classnames"
+import { useScrollPercentage } from "react-scroll-percentage"
 
 const News = ({ _key, title, list = [] }) => {
-  const [currentSlide, setCurrentSlide] = React.useState(0)
+  const [progressWidth, setProgressWidth] = useState(0)
+  const scroll = () => {
+    const wrapper = document.querySelector(".news-slider")
 
-  const [sliderRef, slider] = useKeenSlider({
-    slidesPerView: 2,
-    breakpoints: {
-      "(min-width: 768px)": {
-        slidesPerView: 2,
-        mode: "free-snap",
-      },
-      "(min-width: 1200px)": {
-        slidesPerView: 3,
-        mode: "free-snap",
-      },
-    },
-    mode: "free-snap",
-    spacing: 15,
-    loop: false,
-    initial: 0,
-    slideChanged(s) {
-      setCurrentSlide(s.details().relativeSlide)
-    },
-  })
+    const width = wrapper.scrollWidth - wrapper.clientWidth
+    const scrolled = wrapper.scrollLeft
+
+    setProgressWidth(((scrolled / width) * 100).toFixed(2))
+  }
+
+  useEffect(() => {
+    document.querySelector(".news-slider").addEventListener("scroll", scroll)
+    return () => {}
+  }, [])
+
   return (
     <section
       id={`section_${_key}`}
@@ -34,9 +27,11 @@ const News = ({ _key, title, list = [] }) => {
         <h2 className="serif--lg serif--xl--lg serif--xl--lg  col c6--sm">
           {title}
         </h2>
-        {list.length && (
-          <ul className="pt5 pt10--lg keen-slider news-slider" ref={sliderRef}>
-            {list.map(item => {
+      </div>
+      {list.length && (
+        <div className="news-slider__wrapper">
+          <ul className="pt5 pt10--lg news-slider banner list">
+            {list.map((item, index) => {
               const { date, title, description, url } = item
               const styledDate = `${date.split("-")[1]}-${date.split("-")[2]}-${
                 date.split("-")[0]
@@ -45,7 +40,7 @@ const News = ({ _key, title, list = [] }) => {
               return (
                 <li
                   key={item._key}
-                  className="keen-slider__slide news-slider__slide b--black p2"
+                  className="news-slider__slide b--black p2 di mr2 mr5--lg"
                 >
                   <a
                     href={url}
@@ -60,26 +55,19 @@ const News = ({ _key, title, list = [] }) => {
                 </li>
               )
             })}
-            {slider && (
-              <div className="dots">
-                {[...Array(slider.details().size).keys()].map(idx => {
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        slider.moveToSlideRelative(idx)
-                      }}
-                      className={
-                        "dot" + (currentSlide === idx ? " active" : "")
-                      }
-                    />
-                  )
-                })}
-              </div>
-            )}
           </ul>
-        )}
-      </div>
+          <div className="grid-container contained">
+            <div className="progress-bar col c10 c6--lg mxa pr">
+              <div
+                className="progress-bar__current pa"
+                style={{
+                  width: progressWidth + "%",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

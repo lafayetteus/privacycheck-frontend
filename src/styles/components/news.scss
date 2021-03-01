@@ -1,2 +1,51 @@
+.news-slider__wrapper {
+  overflow: visible;
+}
 .news-slider {
+  display: flex;
+  overflow-x: scroll;
+  padding: 50px 25px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  @include breakpoint(md) {
+    padding-left: 25vw;
+    padding-right: 50px;
+  }
+}
+
+.news-slider__slide {
+  min-width: 66%;
+
+  max-width: 200px;
+
+  @include breakpoint(sm) {
+    max-width: 400px;
+    min-width: 400px;
+  }
+
+  @include breakpoint(md) {
+    max-width: 500px;
+    min-width: 500px;
+    min-height: 250px;
+  }
+}
+
+.progress-bar {
+  background-color: color(black);
+  height: 1px;
+}
+
+.progress-bar__current {
+  height: 4px;
+  transition: width 50ms ease;
+  min-width: 1%;
+  top: -2px;
+  left: 0;
+  background-color: black;
+  border-radius: 500px;
 }
