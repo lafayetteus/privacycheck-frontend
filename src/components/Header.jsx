@@ -55,10 +55,9 @@ const Header = ({ pathname, navigation = [] }) => {
   return (
     <React.Fragment>
       <header
-        className={cx("header", {
-          pf: pathname === "/",
-          "psy scrolled": pathname !== "/",
-          "bb--black scrolled": scrolled,
+        className={cx("header psy bb--black", {
+          scrolled: pathname !== "/",
+          scrolled: scrolled,
         })}
       >
         <section className="grid-container contained df jcb pb2 pt2 aic">

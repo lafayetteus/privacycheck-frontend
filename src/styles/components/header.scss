@@ -1,17 +1,15 @@
 .header {
-  color: color(white);
+  color: white;
+  background-color: color(grey);
   top: 0;
   left: 0;
   right: 0;
   z-index: $z-index-header;
-  background-color: transparent;
-  transition: color 400ms ease, border-bottom 400ms ease,
-    background-color 400ms ease;
-  border-bottom: 1px solid transparent;
+  transition: color 400ms ease;
 
   &.scrolled {
-    color: black;
     background-color: color(white);
+    color: color(black);
   }
 }
 
