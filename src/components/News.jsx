@@ -2,7 +2,7 @@ import React from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 
-const News = ({ _type, index, showNav, title, list = [] }) => {
+const News = ({ _key, title, list = [] }) => {
   const [currentSlide, setCurrentSlide] = React.useState(0)
 
   const [sliderRef, slider] = useKeenSlider({
@@ -27,7 +27,7 @@ const News = ({ _type, index, showNav, title, list = [] }) => {
   })
   return (
     <section
-      id={`${_type}_${index}`}
+      id={`section_${_key}`}
       className="news page-section bb--black pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1"
     >
       <div className="grid-container contained">
@@ -45,7 +45,7 @@ const News = ({ _type, index, showNav, title, list = [] }) => {
               return (
                 <li
                   key={item._key}
-                  className="keen-slider__slide news-slider__slide"
+                  className="keen-slider__slide news-slider__slide b--black p2"
                 >
                   <a
                     href={url}

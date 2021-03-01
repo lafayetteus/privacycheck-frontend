@@ -25,13 +25,13 @@ button {
 
   &:hover {
     background-color: color(black);
-    color: color(grey);
+    color: color(white);
   }
 }
 .button--primary--white {
   @extend .button--primary;
   border: 1px solid color(white);
-  color: white;
+  color: color(white);
 
   &:hover {
     background-color: color(white);

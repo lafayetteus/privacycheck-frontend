@@ -11,7 +11,7 @@ const Menu = props => (
   >
     <path
       d="M0 0V3.8H38V0H0ZM0 11.4V15.2H38V11.4H0ZM0 22.8V26.6H38V22.8H0Z"
-      fill={props.className === "color--white" ? "#ffffff" : "#000000"}
+      fill={props.className === "color--white" ? "#e0e0e0" : "#595959"}
     />
   </svg>
 )

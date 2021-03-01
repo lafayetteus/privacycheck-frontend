@@ -2,17 +2,21 @@ import React from "react"
 import cx from "classnames"
 import BlockContent from "@sanity/block-content-to-react"
 
-const HowItWorks = ({ _type, index, title, description, list = [] }) => (
+const HowItWorks = ({ _key, title, description, list = [] }) => (
   <section
-    id={`${_type}_${index}`}
+    id={`section_${_key}`}
     className="how-it-works page-section bb--black pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1"
   >
     <div className="grid-container contained">
       <div className="df fdc fdr--sm intro__header">
-        <h2 className="serif--lg serif--xl--lg col c6--sm">{title}</h2>
-        <div className="col c6--sm pt2 pt0--sm serif--sm serif--md--md serif--lg--lg rich-text">
-          <BlockContent blocks={description} />
-        </div>
+        <h2 className="serif--lg serif--xl--lg col c6--sm pr2 pr4--lg">
+          {title}
+        </h2>
+        {!!description.length > 0 && (
+          <div className="col c6--sm pt2 pt0--sm serif--sm serif--md--md serif--lg--lg rich-text">
+            <BlockContent blocks={description} />
+          </div>
+        )}
       </div>
       {!!list.length && (
         <React.Fragment>
@@ -21,7 +25,7 @@ const HowItWorks = ({ _type, index, title, description, list = [] }) => (
               <div
                 className={cx("row", {
                   "pt2 pt5--lg": index > 0,
-                  "pt5 pt10--lg": index === 0,
+                  "pt4 pt10--lg": index === 0,
                 })}
                 key={item._key}
               >

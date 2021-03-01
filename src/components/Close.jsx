@@ -11,14 +11,14 @@ const Close = props => (
   >
     <path
       d="M37 1L1 37"
-      stroke={props.className === "color--white" ? "#ffffff" : "#000000"}
+      stroke={props.className === "color--white" ? "#e0e0e0" : "#595959"}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinecap="round"
     />
     <path
       d="M1 1L37 37"
-      stroke={props.className === "color--white" ? "#ffffff" : "#000000"}
+      stroke={props.className === "color--white" ? "#e0e0e0" : "#595959"}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinecap="round"

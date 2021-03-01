@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import cx from "classnames"
 import Logo from "./Logo"
 import scrollToElement from "scroll-to-element"
@@ -21,6 +21,20 @@ const Header = ({ pathname, navigation = [] }) => {
       ease: "inQuart",
       duration: 1000,
     })
+
+    if (pathname !== "/") {
+      navigate("/", {
+        state: destination,
+      })
+
+      setTimeout(() => {
+        scrollToElement(`${destination}`, {
+          offset: -70,
+          ease: "inQuart",
+          duration: 1000,
+        })
+      }, 500)
+    }
   }
 
   const onScroll = () => {
@@ -68,7 +82,7 @@ const Header = ({ pathname, navigation = [] }) => {
                   key={item._key}
                   onClick={scroll}
                   className="sans--sm mr1"
-                  href={`#${item._type}_${index + 1}`}
+                  href={`#section_${item._key}`}
                 >
                   {item.navTitle}
                 </a>

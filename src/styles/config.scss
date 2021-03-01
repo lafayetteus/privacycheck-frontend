@@ -21,9 +21,8 @@ $alignments: (
 //
 
 $all-colors: (
-  black: #000000,
-  grey: #dad9da,
-  white: #ffffff,
+  black: #595959,
+  white: #e0e0e0,
 );
 
 //
@@ -99,7 +98,7 @@ $sans-line-heights: (
 $serif-font-sizes: (
   sm: 12px,
   md: 14px,
-  lg: 18px,
+  lg: 20px,
   xl: 24px,
   xxl: 48px,
 );
@@ -138,4 +137,8 @@ $z-index-underlay: 700;
 
 .submitting {
   cursor: wait;
+}
+
+body {
+  background-color: color(white);
 }

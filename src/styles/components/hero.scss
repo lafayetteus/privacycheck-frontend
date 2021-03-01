@@ -6,7 +6,7 @@
 }
 
 .hero__content {
-  color: white;
+  color: color(white);
   padding: 55vh 20px 50px 20px;
 
   @include breakpoint(md) {
