@@ -38,4 +38,10 @@ All environment variables are included in the Netlify admin panel as environment
 
 This site is meant to be a "Splash Page" lander for Privacy Check while they are pitching to companies. This site is essentially made up of the main `Home Page` and dynamic rich-text pages.
 
+### Navigation
+
 Navigation — not counting the footer "Contact" link — is handled solely through Sanity in each section with the `showNav` boolean and `navTitle` string.
+
+### Contact Modal
+
+This is currently done in a quick n' dirty method by containing state in the Home component and prop-drilling down the method to turn it on thru the ComponentsList & each child Compononent. A more elegant way would be to use Conext & skip the prop drilling. Maybe for the larger, more robust site. ¯\_(ツ)\_/¯

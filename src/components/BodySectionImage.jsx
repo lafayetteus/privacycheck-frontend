@@ -1,7 +1,15 @@
 import React from "react"
 import BlockContent from "@sanity/block-content-to-react"
 
-const BodySectionImage = ({ _key, title, description, image, details }) => (
+const BodySectionImage = ({
+  _key,
+  triggerContact,
+  setIsModalOpen,
+  title,
+  description,
+  image,
+  details,
+}) => (
   <section
     id={`section_${_key}`}
     className="our-solution page-section bb--black pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1"
@@ -40,6 +48,14 @@ const BodySectionImage = ({ _key, title, description, image, details }) => (
         <div className="col c3--lg pt1 pt10--lg reveal__delay--2">
           <div className="sans--sm sans--md--md ml2--lg  rich-text">
             <BlockContent blocks={details} />
+            {triggerContact && (
+              <button
+                className="mxa button--primary mt2 mt5--md"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Contact Us
+              </button>
+            )}
           </div>
         </div>
       </div>

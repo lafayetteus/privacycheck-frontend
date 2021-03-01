@@ -2,7 +2,14 @@ import React from "react"
 import cx from "classnames"
 import BlockContent from "@sanity/block-content-to-react"
 
-const HowItWorks = ({ _key, title, description, list = [] }) => (
+const HowItWorks = ({
+  _key,
+  triggerContact,
+  setIsModalOpen,
+  title,
+  description,
+  list = [],
+}) => (
   <section
     id={`section_${_key}`}
     className="how-it-works page-section bb--black pt5 pb5 pt7--sm pb7--sm pt10--lg pb10--lg reveal__slide reveal__delay--1"
@@ -44,6 +51,14 @@ const HowItWorks = ({ _key, title, description, list = [] }) => (
             )
           })}
         </React.Fragment>
+      )}
+      {triggerContact && (
+        <button
+          className="mxa button--primary mt2 mt5--md"
+          onClick={() => setIsModalOpen(true)}
+        >
+          Contact Us
+        </button>
       )}
     </div>
   </section>

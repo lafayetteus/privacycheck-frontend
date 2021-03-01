@@ -37,7 +37,9 @@ const components = groq`components[] {
 	...,
 
 	_type == 'hero' => {
+		...,
     	_key,
+		triggerContact,
     	title,
     	subtitle ${richText},
     	image ${asset}
@@ -45,6 +47,7 @@ const components = groq`components[] {
 
 	_type == 'introSection' => {
       _key,
+	  triggerContact,
 	  showNav,
 	  navTitle,
       title,
@@ -55,6 +58,7 @@ const components = groq`components[] {
 
 	_type == 'ourSolution' => {
       _key,
+	  triggerContact,
 	  showNav,
 	  navTitle,
       title,
@@ -66,6 +70,7 @@ const components = groq`components[] {
 
 	_type == 'howItWorks' => {
       _key,
+	  triggerContact,
 	  showNav,
 	  navTitle,
       title,
@@ -79,6 +84,7 @@ const components = groq`components[] {
 
 	_type == 'news' => {
 		_key,
+		triggerContact,
 		showNav,
 		navTitle,
     	title,
@@ -93,6 +99,7 @@ const components = groq`components[] {
 
 	_type == 'bodySectionRichText' => {
 		_key,
+		triggerContact,
 		showNav,
 		navTitle,
 		description ${richText},
@@ -100,6 +107,7 @@ const components = groq`components[] {
 
 	_type == 'bodySectionImage' => {
 		_key,
+		triggerContact,
 		showNav,
 		navTitle,
 		description ${richText},

@@ -8,46 +8,77 @@ import News from "./News"
 import BodySectionImage from "./BodySectionImage"
 import BodySectionRichText from "./BodySectionRichText"
 
-const ComponentList = ({ components = [] }) => (
+const ComponentList = ({ setIsModalOpen, components = [] }) => (
   <React.Fragment>
     {components.map((component, index) => {
       switch (component._type) {
         case "hero":
-          return <Hero index={index} key={component._key} {...component} />
+          return (
+            <Hero
+              index={index}
+              setIsModalOpen={setIsModalOpen}
+              key={component._key}
+              {...component}
+            />
+          )
         case "introSection":
           return (
             <Reveal key={component._key}>
-              <IntroSection index={index} {...component} />
+              <IntroSection
+                setIsModalOpen={setIsModalOpen}
+                index={index}
+                {...component}
+              />
             </Reveal>
           )
         case "ourSolution":
           return (
             <Reveal key={component._key}>
-              <OurSolution index={index} {...component} />
+              <OurSolution
+                setIsModalOpen={setIsModalOpen}
+                index={index}
+                {...component}
+              />
             </Reveal>
           )
         case "howItWorks":
           return (
             <Reveal key={component._key}>
-              <HowItWorks index={index} {...component} />
+              <HowItWorks
+                setIsModalOpen={setIsModalOpen}
+                index={index}
+                {...component}
+              />
             </Reveal>
           )
         case "news":
           return (
             <Reveal key={component._key}>
-              <News index={index} {...component} />
+              <News
+                setIsModalOpen={setIsModalOpen}
+                index={index}
+                {...component}
+              />
             </Reveal>
           )
         case "bodySectionImage":
           return (
             <Reveal key={component._key}>
-              <BodySectionImage index={index} {...component} />
+              <BodySectionImage
+                setIsModalOpen={setIsModalOpen}
+                index={index}
+                {...component}
+              />
             </Reveal>
           )
         case "bodySectionRichText":
           return (
             <Reveal key={component._key}>
-              <BodySectionRichText index={index} {...component} />
+              <BodySectionRichText
+                setIsModalOpen={setIsModalOpen}
+                index={index}
+                {...component}
+              />
             </Reveal>
           )
         default:

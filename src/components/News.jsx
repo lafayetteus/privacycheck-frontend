@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react"
-import cx from "classnames"
-import { useScrollPercentage } from "react-scroll-percentage"
 
 const News = ({ _key, title, list = [] }) => {
   const [progressWidth, setProgressWidth] = useState(0)
